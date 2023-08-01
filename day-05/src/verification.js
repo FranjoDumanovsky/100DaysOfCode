@@ -150,7 +150,6 @@ async function submitForm(e) {
         console.log("PHPMailer response", res);
         loadingMessage.classList.remove("show");
         successMessage.classList.add("show");
-        phoneNumber.parentElement.style.display = "none";
       } else {
         throw new Error("Failed to send email via PHPMailer");
       }
