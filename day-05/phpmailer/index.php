@@ -28,6 +28,8 @@ if (!empty($_POST)) {
 
 // specify SMTP credentials
 	$mail = new PHPMailer();
+
+	$mail->SMTPDebug = SMTP::DEBUG_SERVER;
 //Set mailer to use smtp
 	$mail->isSMTP();
 //Define smtp host
