@@ -1,0 +1,85 @@
+/* FORM */
+
+.form-container {
+  display: flex;
+  gap: 5rem;
+}
+
+form {
+  max-width: 600px;
+  width: 100%;
+  margin-top: 7rem;
+  padding: 20px 20px;
+  border-radius: 20px;
+  border: solid 2px black;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.6rem;
+  margin-top: 1.5275rem;
+}
+
+.form-group input {
+  width: 100%;
+
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.form-group input:focus main:hover h1::after {
+  background-color: aquamarine;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.contact-info-list {
+  max-width: 600px;
+  margin-top: 7rem;
+  list-style-type: none;
+}
+
+.contact-list-item:not(:first-child) {
+  margin-top: 1rem;
+}
+
+.contact-list-item a {
+  color: black;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+
+  border: solid 2px black;
+}
+
+.contact-list-item a p {
+  font-weight: 500;
+}
+
+.contact-list-item span svg {
+  width: 100%;
+  max-width: 30px;
+  height: auto;
+}
+
+.contact-list-item a {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.5s ease-in-out;
+}
+
+.contact-list-item:hover a {
+  background-color: rgb(44, 44, 44);
+  transform: translateX(15%);
+  color: aqua;
+}
+
+.contact-list-item:hover svg path {
+  transition: all 0.5s ease-in-out;
+  stroke: aqua;
+}
