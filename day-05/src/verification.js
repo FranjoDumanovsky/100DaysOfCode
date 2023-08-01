@@ -101,7 +101,7 @@ const submissionAlert = document.querySelector(".submission-alert");
 const errorMessage = document.querySelector(".error-message");
 const successMessage = document.querySelector(".success-message");
 const loadingMessage = document.querySelector(".loading-message");
-
+console.log(submissionAlert);
 function submitForm(e) {
   e.preventDefault();
 
