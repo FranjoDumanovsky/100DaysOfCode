@@ -138,7 +138,7 @@ function submitForm(e) {
           xhr.open("POST", "./phpmailer/index.php", true);
           xhr.setRequestHeader(
             "Content-type",
-            "application/x-www-form-urlencoded"
+            "application/sx-www-form-urlencoded"
           );
 
           xhr.onreadystatechange = function () {
