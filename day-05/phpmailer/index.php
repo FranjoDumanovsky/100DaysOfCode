@@ -24,7 +24,7 @@ $errorMessage = '';
 if (!empty($_POST)) {
    $name = $_POST['name'];
    $email = $_POST['email'];
-   $phone = $_POST['phone'];
+   $phone = $_POST['phoneNumber'];
 
 // specify SMTP credentials
 	$mail = new PHPMailer();
