@@ -153,23 +153,8 @@ function submitForm(e) {
           };
 
           xhr.send(
-            "name=" +
-              name +
-              "&email=" +
-              email +
-              "&message=" +
-              message +
-              "&full_number=" +
-              full_number +
-              "&date-for=" +
-              dateFor +
-              "&numberOfPeople=" +
-              numberOfPeople +
-              "&foundAboutUs=" +
-              foundAboutUs
+            "name=" + name + "&email=" + email + "&phoneNumber=" + phoneNumber
           );
-
-          phoneInput.parentElement.style.display = "none";
         } else {
           throw new Error("Failed to submit form to Google Apps Script");
         }
