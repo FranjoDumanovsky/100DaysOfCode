@@ -102,63 +102,85 @@ const errorMessage = document.querySelector(".error-message");
 const successMessage = document.querySelector(".success-message");
 const loadingMessage = document.querySelector(".loading-message");
 
-async function submitForm(e) {
+function submitForm(e) {
   e.preventDefault();
+
+  // Log when the function is called.
   console.log("submitForm is called");
 
   const form = document.getElementById("contact-form");
-  const scriptURL =
-    "https://script.google.com/macros/s/AKfycbyQp57j3RVtKyM-ZkszMbCMgq6pn1IenSN7TAdbxTJi9yyp506KBGEPHbsbolhRRn2tkQ/exec";
+  const scriptURL = "";
+
+  console.log(nameInputValidation, emailInputValidation, phoneInputValidation);
 
   if (nameInputValidation && emailInputValidation && phoneInputValidation) {
+    // Log when the form passes validation.
     console.log("Form validation passed");
     submissionAlert.classList.add("show");
     loadingMessage.classList.add("show");
-
     // Get form data
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const phoneNumber = document.getElementById("phoneNumber").value;
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var phoneNumber = document.getElementById("phoneNumber").value;
 
+    // Log the form data
     console.log(name, email, phoneNumber);
 
-    try {
-      const response = await fetch(scriptURL, {
-        method: "POST",
-        body: new FormData(form),
-      });
-      if (!response.ok)
-        throw new Error("Failed to submit form to Google Apps Script");
-      console.log("Fetch response", response);
+    fetch(scriptURL, { method: "POST", body: new FormData(form) })
+      .then((response) => {
+        // Log the response from fetch
+        console.log("Fetch response", response);
 
-      const data = {
-        name: name,
-        email: email,
-        phoneNumber: phoneNumber,
-        //... other data you need to send
-      };
+        // Check if the request was successful.
+        if (response.ok) {
+          // Send data to PHP script with AJAX request
+          var xhr = new XMLHttpRequest();
+          xhr.open("POST", "./phpmailer/index.php", true);
+          xhr.setRequestHeader(
+            "Content-type",
+            "application/x-www-form-urlencoded"
+          );
 
-      const res = await fetch("./phpmailer/index.php", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: JSON.stringify(data),
-      });
+          xhr.onreadystatechange = function () {
+            // Log xhr state and status
+            console.log("XHR state", xhr.readyState);
+            console.log("XHR status", xhr.status);
 
-      if (res.ok) {
-        console.log("PHPMailer response", res);
+            if (xhr.readyState == 4 && xhr.status == 200) {
+              loadingMessage.classList.remove("show");
+              successMessage.classList.add("show");
+            }
+          };
+
+          xhr.send(
+            "name=" +
+              name +
+              "&email=" +
+              email +
+              "&message=" +
+              message +
+              "&full_number=" +
+              full_number +
+              "&date-for=" +
+              dateFor +
+              "&numberOfPeople=" +
+              numberOfPeople +
+              "&foundAboutUs=" +
+              foundAboutUs
+          );
+
+          phoneInput.parentElement.style.display = "none";
+        } else {
+          throw new Error("Failed to submit form to Google Apps Script");
+        }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
         loadingMessage.classList.remove("show");
-        successMessage.classList.add("show");
-      } else {
-        throw new Error("Failed to send email via PHPMailer");
-      }
-    } catch (error) {
-      console.error("Error:", error);
-      loadingMessage.classList.remove("show");
-      errorMessage.classList.add("show");
-    }
+        errorMessage.classList.add("show");
+      });
   } else {
+    // Log when form validation fails.
     console.log("Form validation failed");
   }
 }
