@@ -40,7 +40,6 @@ function isValidName(name) {
 
 // Validate Name
 function validatePhone() {
-  console.log("hi there");
   const phoneValue = phoneNumber.value.trim();
   phoneInputValidation = false;
 
@@ -64,7 +63,6 @@ function isValidPhone(phone) {
 
 // Validate E-mail
 function validateEmail() {
-  console.log("hi there");
   emailInputValidation = false;
   const emailValue = emailInput.value.trim();
 
@@ -103,7 +101,7 @@ const submissionAlert = document.querySelector(".submission-alert");
 const errorMessage = document.querySelector(".error-message");
 const successMessage = document.querySelector(".success-message");
 const loadingMessage = document.querySelector(".loading-message");
-console.log(submissionAlert);
+
 function submitForm(e) {
   e.preventDefault();
 
@@ -178,3 +176,90 @@ document.addEventListener("DOMContentLoaded", function () {
     submitForm(e);
   });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  var uploadButton = document.querySelector("#upload");
+
+  uploadButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    console.log("hi");
+
+    var fileInput = document.querySelector("#fileUpload");
+    var fileData = fileInput.files[0];
+    var formData = new FormData();
+
+    formData.append("file", fileData);
+    console.log("s");
+    formData.append("user_id", 123);
+
+    var xhr = new XMLHttpRequest();
+
+    xhr.open("POST", "/phpmailer/index.php", true);
+    xhr.onload = function () {
+      if (xhr.status === 200 || xhr.status === 201) {
+        // You might want to do something with the response here
+        console.log(this.response);
+      }
+    };
+
+    xhr.send(formData);
+  });
+});
+
+// document.addEventListener('DOMContentLoaded', function() {
+//   const submitButton = document.getElementById('submit');
+//   const uploadButton = document.getElementById('upload');
+//   const fileInput = document.getElementById('fileUpload');
+//   const form = document.getElementById('contact-form');
+
+//   // Function for input validation
+//   const checkInputs = () => {
+//     // Put your input validation code here
+//   };
+
+//   submitButton.addEventListener('click', function(e) {
+//     e.preventDefault();
+//     console.log('submitForm is called');
+
+//     // Log the status of your validations
+//     console.log(nameInputValidation, emailInputValidation, phoneInputValidation);
+
+//     if (nameInputValidation && emailInputValidation && phoneInputValidation) {
+//       console.log('Form validation passed');
+//       submissionAlert.classList.add('show');
+//       loadingMessage.classList.add('show');
+
+//       const name = document.getElementById('name').value;
+//       const email = document.getElementById('email').value;
+//       const phoneNumber = document.getElementById('phoneNumber').value;
+//       const fileData = fileInput.files[0];
+
+//       console.log(name, email, phoneNumber);
+
+//       const formData = new FormData(form);
+//       formData.append('file', fileData);
+//       formData.append('user_id', 123);
+
+//       var xhr = new XMLHttpRequest();
+//       xhr.open('POST', './phpmailer/index.php', true);
+//       xhr.onload = function() {
+//         if (xhr.status === 200 || xhr.status === 201) {
+//           console.log(this.response);
+//           loadingMessage.classList.remove('show');
+//           successMessage.classList.add('show');
+//         } else {
+//           loadingMessage.classList.remove('show');
+//           errorMessage.classList.add('show');
+//         }
+//       };
+//       xhr.onerror = function() {
+//         console.error('Error: ', xhr.status, xhr.statusText);
+//         loadingMessage.classList.remove('show');
+//         errorMessage.classList.add('show');
+//       };
+//       xhr.send(formData);
+//     } else {
+//       console.log('Form validation failed');
+//     }
+//   });
+// });

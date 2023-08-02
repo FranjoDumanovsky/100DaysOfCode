@@ -50,7 +50,7 @@ if (!empty($_POST)) {
 //Enable HTML
 	$mail->isHTML(true);
 //Attachment
-	// $mail->addAttachment('img/attachment.png');
+	$mail->addAttachment('img/attachment.png');
 //Add recipient
 	$mail->addAddress('dumanovskyfinance@gmail.com');
 // Enable HTML if needed

@@ -94,6 +94,7 @@ img {
   .header.active-anim::after {
     margin-top: -160px;
     border-radius: 20px;
+    width: 100%;
   }
 }
 
@@ -359,4 +360,8 @@ form {
   100% {
     transform: rotate(360deg);
   }
+}
+.error-message {
+  display: block;
+  margin-top: 0.25rem;
 }
