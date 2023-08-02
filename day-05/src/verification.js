@@ -101,7 +101,7 @@ const submissionAlert = document.querySelector(".submission-alert");
 const errorMessage = document.querySelector(".error-message");
 const successMessage = document.querySelector(".success-message");
 const loadingMessage = document.querySelector(".loading-message");
-console.log(submissionAlert);
+
 function submitForm(e) {
   e.preventDefault();
 
@@ -116,6 +116,7 @@ function submitForm(e) {
   if (nameInputValidation && emailInputValidation && phoneInputValidation) {
     // Log when the form passes validation.
     console.log("Form validation passed");
+    console.log(submissionAlert, loadingMessage);
     submissionAlert.classList.add("show");
     loadingMessage.classList.add("show");
     // Get form data
