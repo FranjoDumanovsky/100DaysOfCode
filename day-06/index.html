@@ -1,0 +1,161 @@
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/index.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+          href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+          rel="stylesheet" />
+  </head>
+
+  <body>
+    <header>
+      <div class="logo">
+        <h3>ContactForm.</h3>
+      </div>
+    </header>
+
+    <main class="main">
+      <h1 class="header">
+        Contact <br />
+        form
+      </h1>
+
+      <div class="form-container">
+        <form id="contact-form">
+          <div class="form-group">
+            <label for="name">Name & Surname</label>
+            <input type="text" name="name" id="name" placeholder="Name & Surname" />
+            <span class="error-message"></span>
+
+          </div>
+          <div class="form-group">
+            <label for="email">E-mail</label>
+            <input type="text" name="email" id="email" placeholder="E-mail" />
+            <span class="error-message"></span>
+          </div>
+          <div class="form-group">
+            <label for="phoneNumber">Phone Number</label>
+            <input type="text" name="phoneNumber" id="phoneNumber" placeholder="Phone number" />
+            <span class="error-message"></span>
+          </div>
+          <div class="form-group">
+            <label for="upload">Upload</label>
+            <input id="fileUpload" type="file" name="fileUpload" />
+            <span id="upload" value="Upload">Upload </span>
+          </div>
+
+          <button class="submit-btn" id="submit-btn">Submit</button>
+
+          <div class="submission-alert">
+            <div class="loading-message">
+              <div class="lds-dual-ring"></div>
+              <span>Submiting form...</span>
+            </div>
+            <div class="success-message">
+              <svg viewBox="0 0 512 512">
+                <path
+                      d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z" />
+              </svg>
+              <span>
+                Your form has been succesfully submited! Our team will
+                contact you as soon as possible.
+              </span>
+            </div>
+            <div class="error-message">
+              <svg
+                   xmlns="http://www.w3.org/2000/svg"
+                   fill="none"
+                   viewBox="0 0 24 24"
+                   stroke-width="1.5"
+                   stroke="currentColor"
+                   class="w-6 h-6">
+                <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+              </svg>
+              <span>
+                There was an error. Please try again or contact us on
+                <a href="mailto:barcrawlzagreb@gmail.com" target="_blank">barcrawlzagreb@gmail.com</a></span>
+            </div>
+            <div class="loading-screen"></div>
+          </div>
+        </form>
+        <div class="contact-info">
+          <ul class="contact-info-list">
+            <li class="contact-list-item">
+              <a href="mailto:franjodumanovsky@gmail.com">
+                <span>
+                  <svg
+                       xmlns="http://www.w3.org/2000/svg"
+                       fill="none"
+                       viewBox="0 0 24 24"
+                       stroke-width="1.5"
+                       stroke="currentColor"
+                       class="w-6 h-6">
+                    <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                  </svg>
+                </span>
+                <p>franjodumanovsky@gmail.com</p>
+              </a>
+            </li>
+            <li class="contact-list-item">
+              <a href="tel:+385 997733117">
+                <span>
+                  <svg
+                       xmlns="http://www.w3.org/2000/svg"
+                       fill="none"
+                       viewBox="0 0 24 24"
+                       stroke-width="1.5"
+                       stroke="currentColor"
+                       class="w-6 h-6">
+                    <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M20.25 3.75v4.5m0-4.5h-4.5m4.5 0l-6 6m3 12c-8.284 0-15-6.716-15-15V4.5A2.25 2.25 0 014.5 2.25h1.372c.516 0 .966.351 1.091.852l1.106 4.423c.11.44-.054.902-.417 1.173l-1.293.97a1.062 1.062 0 00-.38 1.21 12.035 12.035 0 007.143 7.143c.441.162.928-.004 1.21-.38l.97-1.293a1.125 1.125 0 011.173-.417l4.423 1.106c.5.125.852.575.852 1.091V19.5a2.25 2.25 0 01-2.25 2.25h-2.25z" />
+                  </svg>
+                </span>
+                <p>+385 997733117</p>
+              </a>
+            </li>
+            <li class="contact-list-item">
+              <a href="https://goo.gl/maps/R14yQF4xvwf5QdaMA">
+                <span>
+                  <svg
+                       xmlns="http://www.w3.org/2000/svg"
+                       fill="none"
+                       viewBox="0 0 24 24"
+                       stroke-width="1.5"
+                       stroke="currentColor"
+                       class="w-6 h-6">
+                    <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                  </svg>
+                </span>
+                <p>Trg Kralja Tomislava 5, 10430</p>
+              </a>
+            </li>
+          </ul>
+          <div class="para">
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="src/script.js"></script>
+    <script src="src/verification.js"></script>
+  </body>
+
+</html>
