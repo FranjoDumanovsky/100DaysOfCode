@@ -253,7 +253,7 @@ document.addEventListener("DOMContentLoaded", function () {
           successMessage.classList.add("show");
         } else {
           loadingMessage.classList.remove("show");
-          errorMessage.classList.add("show");
+          errorMessage.classList.add("shos");
         }
       };
       xhr.onerror = function () {
