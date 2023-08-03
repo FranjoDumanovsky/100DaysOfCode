@@ -1,0 +1,93 @@
+.submission-alert {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #1d1d1d;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  display: none;
+}
+.submission-alert.show {
+  display: flex;
+}
+.submission-alert svg {
+  width: 55px;
+  fill: var(--white);
+  stroke: red;
+  opacity: 0.8;
+  margin-top: -2rem;
+}
+.submission-alert span {
+  font-size: 18px;
+  text-align: center;
+  line-height: 1.6;
+  margin-top: 0.725rem;
+}
+.submission-alert .error-message span,
+.submission-alert .error-message a {
+  color: rgb(232, 53, 53);
+}
+.submission-alert .error-message a {
+  text-decoration: underline;
+}
+.submission-alert .error-message svg {
+  color: rgba(232, 53, 53, 0.922);
+  fill: transparent;
+}
+
+.submission-alert .success-message span,
+.submission-alert .loading-message span {
+  color: white;
+}
+
+.submission-alert .success-message,
+.submission-alert .error-message,
+.submission-alert .loading-message {
+  display: none;
+}
+
+.submission-alert .success-message.show,
+.submission-alert .error-message.show,
+.submission-alert .loading-message.show {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+// Loading animation
+.lds-dual-ring {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 1rem;
+}
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 32px;
+  height: 32px;
+  margin: 4px;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  border-color: #fff transparent #fff transparent;
+  animation: lds-dual-ring 1.5s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.error-message {
+  display: block;
+  margin-top: 0.25rem;
+}
