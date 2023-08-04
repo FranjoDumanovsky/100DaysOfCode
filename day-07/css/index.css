@@ -51,16 +51,9 @@ img {
   position: relative;
   transition: color 0.5s ease-in-out;
   margin-top: 2rem;
-  font-size: 40px;
-  font-size: clamp(200px, 50% + 20px, 800px);
+  font-size: clamp(35px, 50% + 164px, 220px);
   text-transform: uppercase;
   line-height: 0.7;
-}
-@media (min-width: 960px) {
-  .header {
-    font-size: 200px;
-    font-size: 180px;
-  }
 }
 
 .header.active-anim {
@@ -71,17 +64,17 @@ img {
   content: "";
   position: absolute;
   left: 0;
-  margin-top: -35px;
+  margin-top: -60px;
   z-index: -1;
   width: 80%;
-  height: 70px;
+  height: 100px;
   background-color: aqua;
   transition: all 0.5s ease;
 }
 @media (min-width: 960px) {
   .header::after {
-    margin-top: -100px;
-    height: 20px;
+    margin-top: -70px;
+    height: 30px;
   }
 }
 
@@ -89,7 +82,7 @@ img {
   background-color: rgb(28, 28, 28);
   left: -10px;
   width: 130%;
-  height: 125%;
+  height: 135%;
   transform-origin: bottom;
 }
 @media (min-width: 960px) {
@@ -117,6 +110,96 @@ img {
   font-size: 20px;
 }
 
+/*Typing*/
+.css-typing p {
+  border-right: 0.15em solid aqua;
+  font-family: "Courier";
+  font-size: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.css-typing p:nth-child(1) {
+  width: 7.3em;
+  -webkit-animation: type 2s steps(30, end);
+  animation: type 2s steps(30, end);
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+.css-typing p:nth-child(2) {
+  width: 7.3em;
+  opacity: 0;
+  -webkit-animation: type2 5s steps(20, end), blink 0.5s step-end infinite alternate;
+  animation: type2 5s steps(20, end), blink 0.5s step-end infinite alternate;
+  -webkit-animation-delay: 4s;
+  animation-delay: 2s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+@keyframes type {
+  0% {
+    width: 0;
+  }
+  99.9% {
+    border-right: 0.15em solid aqua;
+  }
+  100% {
+    border: none;
+  }
+}
+@-webkit-keyframes type {
+  0% {
+    width: 0;
+  }
+  99.9% {
+    border-right: 0.15em solid aqua;
+  }
+  100% {
+    border: none;
+  }
+}
+@keyframes type2 {
+  0% {
+    width: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  99.9% {
+    border-right: 0.15em solid aqua;
+  }
+  100% {
+    opacity: 1;
+    border: none;
+  }
+}
+@-webkit-keyframes type2 {
+  0% {
+    width: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  99.9% {
+    border-right: 0.15em solid aqua;
+  }
+  100% {
+    opacity: 1;
+    border: none;
+  }
+}
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+@-webkit-keyframes blink {
+  50% {
+    border-color: tranparent;
+  }
+}
 main {
   margin: 0;
   padding: 10px;
@@ -291,9 +374,8 @@ form {
 
 .submission-alert svg {
   width: 55px;
-  fill: rgb(255, 255, 255);
+  fill: aqua;
   stroke: black;
-  opacity: 0.8;
   margin-top: -2rem;
 }
 
